@@ -10,20 +10,30 @@ describe("filterByCategory", () => {
   test.todo("'sports' возвращает пустой массив");
 
   test("'all' возвращает товары с ID [1, 2, 3, 4, 5, 6]", () => {
-    const products = [1, 2, 3, 4, 5, 6];
     const category = "all";
-    expect(filterByCategory(products, category)).toEqual([1, 2, 3, 4, 5, 6]);
+    expect(
+      filterByCategory(products, category).map((product) => product.id),
+    ).toEqual([1, 2, 3, 4, 5, 6]);
   });
 
   test("пустая строка возвращает товары с ID [1, 2, 3, 4, 5, 6]", () => {
-    const products = [1, 2, 3, 4, 5, 6];
     const category = "";
-    expect(filterByCategory(products, category)).toEqual([1, 2, 3, 4, 5, 6]);
+    expect(
+      filterByCategory(products, category).map((product) => product.id),
+    ).toEqual([1, 2, 3, 4, 5, 6]);
   });
 
   test("undefined возвращает товары с ID [1, 2, 3, 4, 5, 6]", () => {
-    const products = [1, 2, 3, 4, 5, 6];
     const category = undefined;
-    expect(filterByCategory(products, category)).toEqual([1, 2, 3, 4, 5, 6]);
+    expect(
+      filterByCategory(products, category).map((product) => product.id),
+    ).toEqual([1, 2, 3, 4, 5, 6]);
+  });
+
+  test("'electronics' возвращает товары с ID [1, 2]", () => {
+    const category = "electronics";
+    expect(
+      filterByCategory(products, category).map((product) => product.id),
+    ).toEqual([1, 2]);
   });
 });
