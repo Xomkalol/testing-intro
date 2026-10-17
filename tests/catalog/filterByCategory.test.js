@@ -2,7 +2,6 @@ const products = require("../../src/data/products");
 const { filterByCategory } = require("../../src/catalog");
 
 describe("filterByCategory", () => {
-  test.todo("'electronics' возвращает товары с ID [1, 2]");
   test.todo("'books' возвращает товары с ID [3, 6]");
   test.todo("'home' возвращает товары с ID [4, 5]");
   test.todo("'clothes' возвращает пустой массив");
@@ -35,5 +34,12 @@ describe("filterByCategory", () => {
     expect(
       filterByCategory(products, category).map((product) => product.id),
     ).toEqual([1, 2]);
+  });
+
+  test("'books' возвращает товары с ID [1, 2]", () => {
+    const category = "books";
+    expect(
+      filterByCategory(products, category).map((product) => product.id),
+    ).toEqual([3, 6]);
   });
 });
