@@ -2,8 +2,6 @@ const products = require("../../src/data/products");
 const { searchProducts } = require("../../src/catalog");
 
 describe("searchProducts", () => {
-  test.todo("'\\t\\n' возвращает товары с ID [1, 2, 3, 4, 5, 6]");
-
   test("'Наушники' возвращает товар с ID 1", () => {
     expect(
       searchProducts(products, "Наушники").map((product) => product.id),
