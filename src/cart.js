@@ -40,8 +40,14 @@ function removeFromCart(cart, productId) {
   const filteredCart = cart.filter((product) => product.id !== productId);
   return filteredCart;
 }
-function calculateCartSubtotal() {
-  return notImplemented();
+function calculateCartSubtotal(cart) {
+  let totalSum = 0;
+
+  cart.forEach((product) => {
+    const productsPrice = product.price * product.quantity;
+    totalSum += productsPrice;
+  });
+  return totalSum;
 }
 function calculateOrderTotal() {
   return notImplemented();
